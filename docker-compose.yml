@@ -1,0 +1,29 @@
+version: '3'
+services:
+  ionic_app:
+    build: ionic-app
+    environment:
+      PORT: 8001
+    ports:
+      - 8001:8001
+
+  # nest_api:
+  #   build: nest-api
+  #   environment:
+  #     PORT: 8002
+  #   ports:
+  #     - 8002:8002
+
+  # metadata_service:
+  #   build: metadata-service
+  #   environment:
+  #     PORT: 8003
+  #   ports:
+  #     - 8003:8003
+
+  poster_service:
+    build: poster-service
+    environment:
+      PORT: 8004
+    ports:
+      - 8004:8004
