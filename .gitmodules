@@ -1,0 +1,12 @@
+[submodule "nest-api"]
+	path = nest-api
+	url = https://github.com/kwizapp/nest-api
+[submodule "ionic-app"]
+	path = ionic-app
+	url = https://github.com/kwizapp/ionic-app
+[submodule "metadata-service"]
+	path = metadata-service
+	url = https://github.com/kwizapp/metadata-service
+[submodule "poster-service"]
+	path = poster-service
+	url = https://github.com/kwizapp/poster-service
