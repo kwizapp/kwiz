@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "ionic-app"
+    },
+    {
+      "path": "nest-api"
+    },
+    {
+      "path": "metadata-service"
+    },
+    {
+      "path": "poster-service"
+    }
+  ],
+  "settings": {}
+}
