@@ -1,14 +1,18 @@
 version: '3'
 services:
   ionic_app:
-    build: ionic-app
+    build:
+      context: ionic-app
+      dockerfile: Dockerfile.prod
     environment:
       PORT: 8001
     ports:
       - 8001:8001
 
   nest_api:
-    build: nest-api
+    build:
+      context: nest-api
+      dockerfile: Dockerfile.prod
     environment:
       PORT: 8002
     ports:
@@ -22,7 +26,9 @@ services:
   #     - 8003:8003
 
   poster_service:
-    build: poster-service
+    build:
+      context: poster-service
+      dockerfile: Dockerfile.prod
     environment:
       PORT: 8004
     ports:
