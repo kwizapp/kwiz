@@ -11,6 +11,9 @@
     },
     {
       "path": "poster-service"
+    },
+    {
+      "path": "."
     }
   ],
   "settings": {}
