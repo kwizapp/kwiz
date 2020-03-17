@@ -1,6 +1,6 @@
 ---
 name: Pull Request Template
-about: Provides guidance and a checklist for creating a pull request
+about: Custom Pull Request Template with Checklist
 title: ''
 labels: needs-review
 assignees: ''
@@ -14,5 +14,5 @@ _...add a description of your pull request..._
 _...add the user stories or related issues here..._
 
 ### Checklist
-- [ ] Do all the test run?
-- [ ] Have you added descriptive comments to your code?
+- [ ] Do all the test run? (if applicable)
+- [ ] Have you added descriptive comments to your code? (if applicable)
