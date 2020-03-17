@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   ionic_app:
     build: ionic-app
@@ -14,12 +14,12 @@ services:
     ports:
       - 8002:8002
 
-  # metadata_service:
-  #   build: metadata-service
-  #   environment:
-  #     PORT: 8003
-  #   ports:
-  #     - 8003:8003
+  metadata_service:
+    build: metadata-service
+    environment:
+      PORT: 8003
+    ports:
+      - 8003:8003
 
   poster_service:
     build: poster-service

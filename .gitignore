@@ -1,3 +1,6 @@
 .garden/
+datasets/
+.vscode/settings.json
+.ipynb_checkpoints/
 
 error.log
