@@ -1,6 +1,9 @@
 {
   "folders": [
     {
+      "path": "."
+    },
+    {
       "path": "ionic-app"
     },
     {
@@ -13,7 +16,7 @@
       "path": "poster-service"
     },
     {
-      "path": "."
+      "path": "kwiz-utils"
     }
   ],
   "settings": {}
