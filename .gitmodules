@@ -13,3 +13,6 @@
 [submodule "kwiz-utils"]
 	path = kwiz-utils
 	url = https://github.com/kwizapp/kwiz-utils.git
+[submodule "kwiz-config"]
+	path = kwiz-config
+	url = https://github.com/kwizapp/kwiz-config.git

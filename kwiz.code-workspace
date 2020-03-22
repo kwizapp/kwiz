@@ -17,7 +17,9 @@
     },
     {
       "path": "kwiz-utils"
+    },
+    {
+      "path": "kwiz-config"
     }
-  ],
-  "settings": {}
+  ]
 }
