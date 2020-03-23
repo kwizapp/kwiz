@@ -19,7 +19,7 @@
       "path": "kwiz-utils"
     },
     {
-      "path": "eslint-config"
+      "path": "kwiz-dotfiles"
     }
   ]
 }
