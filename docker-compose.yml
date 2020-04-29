@@ -1,29 +1,59 @@
-version: "3"
+version: '3'
 services:
   ionic_app:
     build: ionic-app
     environment:
-      PORT: 8001
+      PORT: 3000
     ports:
-      - 8001:8001
+      - 3000:3000
+    depends_on:
+      - nest_api
 
   nest_api:
     build: nest-api
     environment:
-      PORT: 8002
+      PORT: 3001
+      METADATA_SERVICE_URL: http://metadata_service:3003
+      POSTER_SERVICE_URL: http://poster_service:3002
     ports:
-      - 8002:8002
+      - 3001:3001
+    depends_on:
+      - metadata_service
+      - poster_service
+
+  metadata_db:
+    image: postgres:12.2-alpine
+    environment:
+      POSTGRES_USER: kwiz
+      POSTGRES_PASSWORD: kwiz
+      POSTGRES_DB: kwiz
+
+  metadata_init:
+    build:
+      context: metadata-service/preprocessing
+      dockerfile: metadata-service/preprocessing/Dockerfile
+    environment:
+      DATABASE_URL: postgres://kwiz:kwiz@metadata_db:5432/kwiz
+      POSTER_SERVICE_URL: http://poster_service:3002
+    depends_on:
+      - metadata_db
+      - poster_service
 
   metadata_service:
     build: metadata-service
     environment:
-      PORT: 8003
+      PORT: 3003
+      DATABASE_URL: postgres://kwiz:kwiz@metadata_db:5432/kwiz
+      POSTER_SERVICE_URL: http://poster_service:3002
     ports:
-      - 8003:8003
+      - 3003:3003
+    depends_on:
+      - metadata_db
 
   poster_service:
     build: poster-service
     environment:
-      PORT: 8004
+      PORT: 3002
+      API_KEY: d820c68
     ports:
-      - 8004:8004
+      - 3002:3002
