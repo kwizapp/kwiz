@@ -1,37 +1,64 @@
-version: "3"
+version: '3'
 services:
   ionic_app:
     build:
       context: ionic-app
       dockerfile: Dockerfile.prod
-    environment:
-      PORT: 8001
     ports:
-      - 8001:8001
+      - 3000:3000
+    depends_on:
+      - nest_api
 
   nest_api:
     build:
       context: nest-api
       dockerfile: Dockerfile.prod
     environment:
-      PORT: 8002
+      METADATA_SERVICE_URL: http://metadata_service:3003
+      POSTER_SERVICE_URL: http://poster_service:3002
     ports:
-      - 8002:8002
-
-  metadata_service:
-    build:
-      context: metadata-service
-      dockerfile: Dockerfile.prod
-    environment:
-      PORT: 8003
-    ports:
-      - 8003:8003
+      - 3001:3001
+    depends_on:
+      - metadata_service
+      - poster_service
 
   poster_service:
     build:
       context: poster-service
       dockerfile: Dockerfile.prod
     environment:
-      PORT: 8004
+      API_KEY: <API_KEY>
     ports:
-      - 8004:8004
+      - 3002:3002
+
+  metadata_service:
+    build:
+      context: metadata-service
+      dockerfile: Dockerfile.prod
+    environment:
+      DATABASE_HOSTNAME: metadata_db
+      DATABASE_URL: postgres://kwiz:kwiz@metadata_db:5432/kwiz
+      POSTER_SERVICE_URL: http://poster_service:3002
+    ports:
+      - 3003:3003
+    depends_on:
+      - metadata_db
+
+  metadata_init:
+    build:
+      context: metadata-service/preprocessing
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_HOSTNAME: metadata_db
+      DATABASE_URL: postgres://kwiz:kwiz@metadata_db:5432/kwiz
+      POSTER_SERVICE_URL: http://poster_service:3002
+    depends_on:
+      - metadata_db
+      - poster_service
+
+  metadata_db:
+    image: postgres:12.2-alpine
+    environment:
+      POSTGRES_USER: kwiz
+      POSTGRES_PASSWORD: kwiz
+      POSTGRES_DB: kwiz
