@@ -54,3 +54,5 @@ services:
       POSTGRES_USER: kwiz
       POSTGRES_PASSWORD: kwiz
       POSTGRES_DB: kwiz
+    ports:
+      - 5432:5432
