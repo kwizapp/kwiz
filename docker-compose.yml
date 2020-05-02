@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   ionic_app:
     build: ionic-app
@@ -21,7 +21,7 @@ services:
   poster_service:
     build: poster-service
     environment:
-      API_KEY: <API_KEY>
+      API_KEY: ${OMDB_API_KEY}
     ports:
       - 3002:3002
 

@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   ionic_app:
     build:
@@ -27,7 +27,7 @@ services:
       context: poster-service
       dockerfile: Dockerfile.prod
     environment:
-      API_KEY: <API_KEY>
+      API_KEY: ${OMDB_API_KEY}
     ports:
       - 3002:3002
 
