@@ -19,3 +19,6 @@
 [submodule "wiki"]
 	path = wiki
 	url = https://github.com/kwizapp/kwiz.wiki.git
+[submodule "kwizapp.github.io"]
+	path = kwizapp.github.io
+	url = https://github.com/kwizapp/kwizapp.github.io
