@@ -16,3 +16,6 @@
 [submodule "kwiz-dotfiles"]
 	path = kwiz-dotfiles
 	url = https://github.com/kwizapp/kwiz-dotfiles
+[submodule "kwizapp.github.io"]
+	path = kwizapp.github.io
+	url = https://github.com/kwizapp/kwizapp.github.io
