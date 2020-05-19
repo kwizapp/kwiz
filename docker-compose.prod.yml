@@ -4,6 +4,8 @@ services:
     build:
       context: ionic-app
       dockerfile: Dockerfile.prod
+      args:
+        NODE_AUTH_TOKEN: ${NODE_AUTH_TOKEN}
     ports:
       - 3000:3000
     depends_on:
@@ -13,6 +15,8 @@ services:
     build:
       context: nest-api
       dockerfile: Dockerfile.prod
+      args:
+        NODE_AUTH_TOKEN: ${NODE_AUTH_TOKEN}
     environment:
       METADATA_SERVICE_URL: http://metadata_service:3003
       POSTER_SERVICE_URL: http://poster_service:3002
@@ -26,6 +30,8 @@ services:
     build:
       context: poster-service
       dockerfile: Dockerfile.prod
+      args:
+        NODE_AUTH_TOKEN: ${NODE_AUTH_TOKEN}
     environment:
       API_KEY: ${OMDB_API_KEY}
     ports:
@@ -35,6 +41,8 @@ services:
     build:
       context: metadata-service
       dockerfile: Dockerfile.prod
+      args:
+        NODE_AUTH_TOKEN: ${NODE_AUTH_TOKEN}
     environment:
       DATABASE_HOSTNAME: metadata_db
       DATABASE_URL: postgres://kwiz:kwiz@metadata_db:5432/kwiz
