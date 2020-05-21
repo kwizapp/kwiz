@@ -17,6 +17,19 @@ The `_run.sh` script allows you to run `kwiz` using `docker-compose`. For first 
 
 Make sure that `--prod` is specified before `--init`.
 
+_Note: The database hydration takes some time. The application should be ready once you see the following output:_
+
+```
+metadata_init_1     | > Downloading movie dataset
+metadata_init_1     | > Unzipping movie dataset
+metadata_init_1     | > Filtering movies
+metadata_init_1     | > Checking consistency against OMDB
+metadata_init_1     | > Hydrating database
+...
+metadata_init_1     | 2020-05-21 05:49:05,433 INFO sqlalchemy.engine.base.Engine COMMIT
+kwiz_metadata_init_1 exited with code 0
+```
+
 ## Development
 
 Please go through the installation steps [here](https://github.com/kwizapp/kwiz/wiki/Development).
