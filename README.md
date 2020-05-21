@@ -32,7 +32,10 @@ kwiz_metadata_init_1 exited with code 0
 
 ## Development
 
-Please go through the installation steps [here](https://github.com/kwizapp/kwiz/wiki/Development).
+For development on any ouf the _Kwiz_ services and libraries, please make sure that you have working installations of the following:
+
+- Node.js 12 or later
+- Docker
 
 ## Git Submodules
 
